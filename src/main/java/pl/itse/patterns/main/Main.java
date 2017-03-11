@@ -2,6 +2,10 @@ package pl.itse.patterns.main;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import pl.itse.patterns.abs.factory.AbstractFactory;
+import pl.itse.patterns.abs.factory.FactoryProducer;
+import pl.itse.patterns.abs.factory.IColor;
+import pl.itse.patterns.abs.factory.IShape;
 import pl.itse.patterns.decorator.Circle;
 import pl.itse.patterns.decorator.Rectangle;
 import pl.itse.patterns.decorator.RedShapeDecorator;
@@ -66,5 +70,31 @@ public class Main {
 
 		System.out.println("\nRectangle of red border");
 		redRectangle.draw();
+
+		// Abstract factory
+
+		System.out.println("\n*** Design pattern: Abstract factory ***\n");
+		
+		AbstractFactory shapeFactory = FactoryProducer.getFactory("SHAPE");
+
+		IShape shape1 = shapeFactory.getShape("CIRCLE");
+		shape1.draw();
+
+		IShape shape2 = shapeFactory.getShape("RECTANGLE");
+		shape2.draw();
+
+		IShape shape3 = shapeFactory.getShape("SQUARE");
+		shape3.draw();
+
+		AbstractFactory colorFactory = FactoryProducer.getFactory("COLOR");
+
+		IColor color1 = colorFactory.getColor("RED");
+		color1.fill();
+
+		IColor color2 = colorFactory.getColor("Green");
+		color2.fill();
+
+		IColor color3 = colorFactory.getColor("BLUE");
+		color3.fill();
 	}
 }
