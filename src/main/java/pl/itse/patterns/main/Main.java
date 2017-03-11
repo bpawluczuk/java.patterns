@@ -10,6 +10,12 @@ import pl.itse.patterns.strategy.TaxContextStrategy;
 import pl.itse.patterns.strategy.TaxEN;
 import pl.itse.patterns.strategy.TaxPL;
 
+/*
+* Design Patterns examples in Java
+* 
+* @author Borys Pawluczuk
+*/
+
 @SpringBootApplication
 public class Main {
 
